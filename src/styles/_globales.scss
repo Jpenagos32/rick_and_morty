@@ -1,0 +1,24 @@
+.App {
+    text-align: center;
+    color: $texto-color;
+}
+
+html {
+    // background-color: black;
+    margin: 0;
+    padding: 0;
+    background-image: $fondo-img;
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    width: auto;
+    height: auto;
+    
+}
+
+body {
+    background-image: $fondo-letrero;
+    background-position: top;
+    background-size: 80%;
+    background-repeat: no-repeat;
+}

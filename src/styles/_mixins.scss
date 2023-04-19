@@ -1,0 +1,14 @@
+@mixin fondo-difuminado-texto {
+    background-color: rgba(0, 0, 0, 0.5);
+    border-radius: 10px;
+}
+
+@mixin border-left-radius {
+    border-top-left-radius: 10px;
+    border-bottom-left-radius: 10px;
+}
+
+@mixin border-right-radius {
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px;
+}

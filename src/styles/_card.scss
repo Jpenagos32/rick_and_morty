@@ -1,0 +1,28 @@
+.card{
+    margin: 200px 10px;
+    padding: 10px;
+    background-color: $fondo-principal;
+    background-image: url('../images/portal.png');
+    background-position: center;
+    background-size: contain;
+    background-repeat: no-repeat;
+    border-radius: 15px;
+    img {
+        border-radius: 15px;
+        width: 80%;
+    }
+
+    .cardHeader {
+        @include fondo-difuminado-texto;
+    }
+
+    .textBg {
+        @include fondo-difuminado-texto;
+    }
+    @media (max-width: 768px) {
+        margin: 15px;
+        &:first-of-type{
+            margin-top: 100px;
+        }
+    }
+}

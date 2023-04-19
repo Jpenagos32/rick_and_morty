@@ -1,0 +1,24 @@
+.searchBarContainer {
+    padding-top: 10px;
+    position: relative;
+
+    input {
+        border: none;
+        background-color: $fondo-negro-difuminado;
+        padding: 10px;
+        width: 70%;
+        @include border-left-radius;
+    }
+
+    button {
+        border: none;
+        background-color: $fondo-secundario;
+        padding: 10px;
+        @include border-right-radius;
+        &:hover{
+            filter: brightness(0.5);
+            cursor: pointer;
+        }
+    }
+
+}
