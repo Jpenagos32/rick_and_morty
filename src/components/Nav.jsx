@@ -12,15 +12,15 @@ const Nav = (props) => {
     return (
         <div className="navBar">
             <div className='navLink'>
-                <Link to='/about'>
+                <Link className='navLinkText' to='/about'>
                     <button>About</button>
                 </Link>
-                <Link to='/home'>
+                <Link className='navLinkText' to='/home'>
                     <button>Home</button>
                 </Link>
+                <button className='navAleatorio' onClick={randomClick}>Aleatorio</button>
             </div>
 
-            <button onClick={randomClick}>Generar Aleatorio</button>
             <SearchBar onSearch={props.onSearch} />
         </div>
     )

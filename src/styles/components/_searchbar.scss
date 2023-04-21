@@ -14,8 +14,7 @@
         padding: 10px;
         @include border-right-radius;
         &:hover{
-            filter: brightness(0.5);
-            cursor: pointer;
+            @include button-hover
         }
     }
 

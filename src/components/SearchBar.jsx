@@ -23,7 +23,7 @@ export default function SearchBar(props) {
 
    return (
       <div className='searchBarContainer'>
-         <input onChange={handleChange} onKeyDown={handleKey} className='inpt' type='search' placeholder='Agregar' value={id}/>
+         <input onChange={handleChange} onKeyDown={handleKey} className='inpt' type='search' placeholder='ID del 0 al 826' value={id}/>
          <button onClick={handleSearch}>
             Agregar
          </button>

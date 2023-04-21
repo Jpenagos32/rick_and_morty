@@ -59,7 +59,7 @@ function App() {
          <Routes>
             <Route path='/home' element={<Cards characters={characters} onClose={onClose}/>}/>
             <Route path='/about' element={<About/>}/>
-            <Route path='/detail/:id' element={<Detail id=''/>}/>
+            <Route path='/detail/:id' element={<Detail />}/>
          </Routes>
          
       </div>

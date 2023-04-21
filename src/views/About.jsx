@@ -1,5 +1,7 @@
 import InstagramLogo from '../images/icons/instagram.png';
 import LinkedinLogo from '../images/icons/linkedin.png';
+import '../styles/App.scss';
+
 
 const About = (props) => {
     return (

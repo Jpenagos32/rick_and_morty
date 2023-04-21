@@ -1,11 +1,12 @@
 import '../styles/App.scss';
+import { Link, NavLink } from 'react-router-dom';
 
 export default function Card(props) {
    return (
       <div className='card'>
          <div className='cardButton'>
-            <h2 className='cardHeader'>{props.name}</h2>
-            <button onClick={()=> props.onClose(props.id)}>X</button>
+            <h2 className='cardHeader'> <Link to={`/detail/${props.id}`} className='cardHeaderLink'>{props.name}</Link> </h2>
+            <button onClick={() => props.onClose(props.id)}>X</button>
          </div>
          <img src={props.image} alt='' />
 

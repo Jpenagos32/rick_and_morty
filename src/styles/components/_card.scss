@@ -29,6 +29,14 @@
 
         h2 {
             width: 90%;
+
+            & :hover {
+                color: black;
+            }
+        }
+
+        .cardHeaderLink {
+            color: $texto-color;
         }
 
         button {
