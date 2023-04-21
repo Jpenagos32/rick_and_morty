@@ -1,0 +1,55 @@
+.card {
+    margin: 10px;
+    padding: 10px;
+    background-color: $fondo-principal;
+    background-image: url('../../images/portal.png');
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    border-radius: 15px;
+
+    img {
+        border-radius: 15px;
+        width: auto;
+        height: auto;
+    }
+
+    .cardHeader {
+        font-family: $fuente-decorada;
+        font-weight: 700;
+        color: $texto-color;
+    }
+
+    .cardButton {
+        @include fondo-difuminado-texto;
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        margin-bottom: 5px;
+
+        h2 {
+            width: 90%;
+        }
+
+        button {
+            background-color: $fondo-secundario;
+            width: 10%;
+            @include border-right-radius;
+
+            &:hover {
+                filter: brightness(0.5);
+                cursor: pointer;
+            }
+        }
+    }
+
+    .textBg {
+        @include fondo-difuminado-texto;
+    }
+
+    @media (max-width: 768px) {
+        margin: 15px;
+        width: 350px;
+        height: auto;
+    }
+}

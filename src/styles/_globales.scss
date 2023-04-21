@@ -3,22 +3,37 @@
     color: $texto-color;
 }
 
-html {
-    // background-color: black;
+* {
+    box-sizing: border-box;
     margin: 0;
     padding: 0;
+}
+li {
+    list-style: none;
+}
+
+a{
+    text-decoration: none;
+}
+
+button {
+    border: none;
+    background: none;   
+    cursor: pointer;
+}
+
+html, body {
+    font-family: $fuente-principal;
+}
+
+html {
+    // background-color: black;
     background-image: $fondo-img;
     background-position: center;
     background-size: cover;
     background-repeat: no-repeat;
+    background-attachment: fixed;
     width: auto;
     height: auto;
     
-}
-
-body {
-    background-image: $fondo-letrero;
-    background-position: top;
-    background-size: 80%;
-    background-repeat: no-repeat;
 }

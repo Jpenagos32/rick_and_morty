@@ -1,6 +1,8 @@
 @import 'variables';
 @import 'mixins';
 @import 'globales';
-@import 'cards';
-@import 'card';
-@import 'searchbar';
+@import './components/cards';
+@import './components/card';
+@import './components/searchbar';
+@import './components/logo';
+@import './components/nav';

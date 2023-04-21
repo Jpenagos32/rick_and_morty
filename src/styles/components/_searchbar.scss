@@ -1,12 +1,10 @@
 .searchBarContainer {
-    padding-top: 10px;
-    position: relative;
 
     input {
         border: none;
         background-color: $fondo-negro-difuminado;
         padding: 10px;
-        width: 70%;
+        width: 50%;
         @include border-left-radius;
     }
 

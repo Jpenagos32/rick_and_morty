@@ -1,0 +1,10 @@
+.navBar {
+    padding: 10px;
+    display: flex;
+    justify-content: right;
+    align-items: center;
+    width: 100%;
+    background-color: $fondo-principal-difuminado;
+    position: fixed;
+    margin-bottom: 200px;
+}

@@ -1,7 +1,10 @@
 .cards{
     display: flex;
     justify-content: center;
+    align-items: center;
+    flex-flow: wrap;
     @media (max-width: 768px) {
         flex-direction: column;
+        justify-content: center;
     }
 }

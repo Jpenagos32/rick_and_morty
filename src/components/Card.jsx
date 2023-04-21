@@ -3,8 +3,10 @@ import '../styles/App.scss';
 export default function Card(props) {
    return (
       <div className='card'>
-         <button onClick={props.onClose}>X</button>
-         <h2 className='cardHeader'>{props.name}</h2>
+         <div className='cardButton'>
+            <h2 className='cardHeader'>{props.name}</h2>
+            <button onClick={()=> props.onClose(props.id)}>X</button>
+         </div>
          <img src={props.image} alt='' />
 
          <div className='textBg'>
