@@ -18,6 +18,7 @@ const Nav = (props) => {
                 <Link className='navLinkText' to='/home'>
                     <button>Home</button>
                 </Link>
+                <button className='navLogOut' onClick={props.logOut}>Log Out</button>
                 <button className='navAleatorio' onClick={randomClick}>Aleatorio</button>
             </div>
 

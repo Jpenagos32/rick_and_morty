@@ -8,21 +8,29 @@
     margin: 0;
     padding: 0;
 }
+
 li {
     list-style: none;
 }
 
-a{
+a {
     text-decoration: none;
 }
 
 button {
-    border: none;
-    background: none;   
     cursor: pointer;
+    border: none;
+    background-color: $fondo-secundario;
+    padding: 10px;
+
+    &:hover {
+        @include button-hover
+    }
 }
 
-html, body {
+
+html,
+body {
     font-family: $fuente-principal;
 }
 
@@ -35,5 +43,5 @@ html {
     background-attachment: fixed;
     width: auto;
     height: auto;
-    
+
 }

@@ -1,0 +1,24 @@
+.about{
+    margin-top: 50px;
+    .aboutLogos{
+        display: flex;
+        justify-content: center;
+        a{
+            margin: 10px;
+            width: 40px;
+            img{
+                width: 100%;
+            }
+        }
+
+        .aboutGithubLogo{
+            filter: invert(100%);
+        }
+    }
+    .aboutMe{
+        padding: 20px 0;
+        text-align: justify;
+        width: 300px;
+        margin: auto;
+    }
+}

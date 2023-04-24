@@ -1,32 +1,36 @@
-import '../styles/App.scss';
-import {  useState } from 'react';
+import "../styles/App.scss";
+import { useState } from "react";
 
 export default function SearchBar(props) {
-
-   const [id, setId] = useState('');
+   const [id, setId] = useState("");
 
    const handleChange = (event) => {
       setId(event.target.value);
-   }
+   };
 
    const handleSearch = () => {
       props.onSearch(id);
-      setId('');
-   }
+      setId("");
+   };
 
    const handleKey = (event) => {
-      if (event.keyCode === 13){
+      if (event.keyCode === 13) {
          props.onSearch(id);
-         setId('')
+         setId("");
       }
-   }
+   };
 
    return (
-      <div className='searchBarContainer'>
-         <input onChange={handleChange} onKeyDown={handleKey} className='inpt' type='search' placeholder='ID del 0 al 826' value={id}/>
-         <button onClick={handleSearch}>
-            Agregar
-         </button>
+      <div className="searchBarContainer">
+         <input
+            onChange={handleChange}
+            onKeyDown={handleKey}
+            className="inpt"
+            type="search"
+            placeholder="ID del 1 al 826"
+            value={id}
+         />
+         <button onClick={handleSearch}>Agregar</button>
       </div>
    );
 }

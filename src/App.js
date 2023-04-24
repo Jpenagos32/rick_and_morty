@@ -1,36 +1,55 @@
 import './styles/App.scss';
 import Cards from './components/Cards.jsx';
 import SearchBar from './components/SearchBar.jsx';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import Logo from './components/Logo';
 import Nav from './components/Nav';
 import axios from 'axios';
-import { Route, Routes } from 'react-router-dom';
+import { Route, Routes, useLocation, useNavigate } from 'react-router-dom';
 import About from './views/About';
 import Detail from './components/Detail';
-
-const example = {
-   id: 1,
-   name: 'Rick Sanchez',
-   status: 'Alive',
-   species: 'Human',
-   gender: 'Male',
-   origin: {
-      name: 'Earth (C-137)',
-      url: 'https://rickandmortyapi.com/api/location/1',
-   },
-   image: 'https://rickandmortyapi.com/api/character/avatar/1.jpeg',
-};
+import Form from './components/Form';
+import ErrorPage from './components/ErrorPage';
 
 function App() {
 
+   const [access, setAccess] = useState(localStorage.getItem('acces') === 'true');
+
+   const navigate = useNavigate();
+
+   const EMAIL = 'jpenagos32@gmail.com';
+   const PASSWORD = 'react123';
+
    const [characters, setCharacters] = useState([]);
-   
+
+   const login = (userData) => {
+      if (userData.email === EMAIL && userData.password === PASSWORD) {
+
+         localStorage.setItem('acces', 'true')
+         setAccess(true);
+         navigate('/home');
+      } else if (!userData.email || !userData.password) {
+         window.alert('Todos los campos son requeridos')
+      } else if (userData.email !== EMAIL || userData.password !== PASSWORD) {
+         window.alert('Email o password incorrectos')
+      }
+   }
+
+   const logOut = () => {
+      localStorage.removeItem('acces')
+      setAccess(false);
+      navigate('/');
+   }
+
+   useEffect(() => {
+      !access && navigate('/');
+   }, [access]);
+
    function onSearch(id) {
 
       const characterExists = characters.find(character => character.id === Number(id));
 
-      if(characterExists){
+      if (characterExists) {
          window.alert('Este personaje ya ha sido agregado');
          return;
       }
@@ -41,27 +60,36 @@ function App() {
             window.alert('¡No hay personajes con este ID!');
          }
       })
-      .catch((error) => {
-         window.alert('¡No hay personajes con este ID!')
-      })
+         .catch((error) => {
+            window.alert('¡No hay personajes con este ID!')
+         })
    }
 
    const onClose = (id) => {
       const filteredCharacters = characters.filter((character) => character.id !== parseInt(id))
       setCharacters(filteredCharacters);
    }
-   
+
+   const location = useLocation();
+
    return (
       <div className='App'>
-         {/* <SearchBar onSearch={(characterID) => window.alert(characterID)} /> */}
-         <Nav onSearch={onSearch}/>
-         <Logo />
-         <Routes>
-            <Route path='/home' element={<Cards characters={characters} onClose={onClose}/>}/>
-            <Route path='/about' element={<About/>}/>
-            <Route path='/detail/:id' element={<Detail />}/>
-         </Routes>
+
+         {
+            location.pathname !== '/'  && <Nav onSearch={onSearch} logOut ={logOut} />
+         }
+         {
+            location.pathname !== '/' && location.pathname !== '*' && <Logo />
+         }
          
+         <Routes>
+            <Route path='/' element={<Form login={login} />} />
+            <Route path='/home' element={<Cards characters={characters} onClose={onClose} />} />
+            <Route path='/about' element={<About />} />
+            <Route path='/detail/:id' element={<Detail />} />
+            <Route path='*' element={<ErrorPage />} />
+         </Routes>
+
       </div>
    );
 }

@@ -1,0 +1,95 @@
+.frm {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10%;
+    width: 45%;
+
+    @include responsive {
+        width: 95%;
+    }
+
+    margin: 150px auto;
+    @include responsive{
+        margin: 100px auto;
+    }
+    background-image: url(../../images/loginbggif.gif);
+    background-size: cover;
+    border-radius: 10px;
+    background-repeat: no-repeat;
+    background-position: center;
+    position: relative;
+
+    .frmForm {
+        background-color: rgba(0, 0, 0, 0.7);
+        padding: 20px;
+        width: 95%;
+        height: auto;
+        margin: auto;
+        border-radius: 10px;
+        text-align: left;
+        color: $fuente-principal;
+
+        label {
+            font-weight: bold;
+        }
+
+        button {
+            border-radius: 10px;
+            margin: 10px;
+        }
+
+        .formInput {
+            padding: 7px;
+            margin: 8px;
+            border-radius: 5px;
+            border: none;
+            background-color: rgba(255, 255, 255, 0.5);
+        }
+
+        .formInputError {
+            padding: 7px;
+            margin: 8px;
+            border-radius: 5px;
+            border: solid 1px rgb(255, 0, 0);
+            background-color: rgba(255, 0, 0, 0.3);
+        }
+
+        .frmError {
+            color: black;
+            font-size: 13px;
+            padding: 5px;
+            position: absolute;
+            z-index: 5;
+            width: 200px;
+            top: 60%;
+            left: 40%;
+            background-color: $fondo-secundario;
+            border-radius: 5px;
+
+            @include responsive {
+                top: 65%;
+                width: 150px;
+            }
+
+
+            @include vibracion;
+        }
+    }
+
+
+
+
+    .formEmailDiv {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .formPasswordDiv {
+        display: flex;
+        flex-direction: column;
+
+    }
+
+
+}

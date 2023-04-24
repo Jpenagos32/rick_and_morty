@@ -19,6 +19,15 @@
         }
     }
 
+    .navLogOut{
+        @include global-button;
+        width: 68px;
+
+        &:hover{
+            @include global-button;
+        }
+    }
+
     .navLink {
         display: flex;
         justify-content: center;
