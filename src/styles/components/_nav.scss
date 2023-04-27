@@ -1,60 +1,54 @@
 .navBar {
-    padding: 10px;
-    display: flex;
-    justify-content: space-evenly;
-    flex-flow: wrap;
-    align-items: center;
-    width: 100%;
-    height: auto;
-    background-color: $fondo-principal-difuminado;
-    position: fixed;
-    margin-bottom: 200px;
+	padding: 10px;
+	display: flex;
+	justify-content: space-evenly;
+	flex-flow: wrap;
+	align-items: center;
+	width: 100%;
+	height: auto;
+	background-color: $fondo-principal-difuminado;
+	position: fixed;
+	margin-bottom: 200px;
 
-    .navAleatorio {
-        @include global-button;
-        // width: 90%;
+	.navLogOut {
+		@include global-button;
+		width: 68px;
 
-        &:hover {
-            @include button-hover;
-        }
-    }
+		&:hover {
+			@include global-button;
+		}
+	}
 
-    .navLogOut{
-        @include global-button;
-        width: 68px;
+	.navLink {
+		display: flex;
+		justify-content: center;
+		align-items: center;
 
-        &:hover{
-            @include global-button;
-        }
-    }
+		a {
+			color: black;
+			font-family: $fuente-principal;
+			font-size: 14px;
+		}
 
-    .navLink {
-        display: flex;
-        justify-content: center;
-        align-items: center;
+		.navLinkText {
+			button {
+				@include global-button;
+			}
 
-        a {
-            color: black;
-            font-family: $fuente-principal;
-            font-size: 14px;
+			& :hover {
+				@include button-hover;
+			}
+		}
 
-        }
+		.navLinkTextActive {
+			button {
+				@include global-button;
+				@include button-hover;
+			}
+		}
 
-        .navLinkText {
-            button {
-                @include global-button;
-
-            }
-
-            & :hover {
-                @include button-hover;
-            }
-
-        }
-
-        @media (max-width: 768px) {
-            margin-bottom: 10px;
-        }
-    }
-
+		@media (max-width: 768px) {
+			margin-bottom: 10px;
+		}
+	}
 }
