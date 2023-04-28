@@ -1,6 +1,5 @@
 import './styles/App.scss';
 import Cards from './components/Cards.jsx';
-import SearchBar from './components/SearchBar.jsx';
 import { useEffect, useState } from 'react';
 import Logo from './components/Logo';
 import Nav from './components/Nav';
@@ -11,7 +10,7 @@ import Detail from './components/Detail';
 import Form from './components/Form';
 import ErrorPage from './components/ErrorPage';
 import Favorites from './components/Favorites';
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import { removeFav } from './redux/actions';
 
 function App() {
@@ -77,7 +76,6 @@ function App() {
 			(character) => character.id !== parseInt(id)
 		);
 		setCharacters(filteredCharacters);
-		// const myFavorites = useSelector((state) => state.myFavorites);
 
 		dispatch(removeFav(id));
 	};

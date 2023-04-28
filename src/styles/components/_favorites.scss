@@ -8,3 +8,19 @@
 		justify-content: center;
 	}
 }
+.favoritesFilter {
+	display: flex;
+	justify-content: center;
+	gap: 15px;
+	.favoritesFilterSelect {
+		background-color: $fondo-secundario-difuminado;
+		background-image: url('../../images/icons/selecticon.png');
+		background-repeat: no-repeat;
+		background-position: right center;
+		background-size: contain;
+		appearance: none;
+		border: none;
+		border-radius: 10px;
+		padding: 5px 25px 5px 5px;
+	}
+}

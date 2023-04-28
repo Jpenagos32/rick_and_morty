@@ -1,12 +1,11 @@
-import { connect, useDispatch } from 'react-redux';
+import { connect } from 'react-redux';
 import '../styles/App.scss';
-import { Link, NavLink } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import { useEffect, useState } from 'react';
 import { addFav, removeFav } from '../redux/actions';
 
 function Card(props) {
 	const [isFav, setIsFav] = useState(false);
-	// const dispatch = useDispatch();
 
 	const handleFavorite = () => {
 		if (isFav) {
