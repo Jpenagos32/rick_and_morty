@@ -9,7 +9,7 @@ const Detail = (props) => {
 	const [character, setCharacter] = useState({});
 
 	useEffect(() => {
-		axios(`https://rickandmortyapi.com/api/character/${id}`).then(
+		axios(`http://localhost:3001/rickandmorty/character/${id}`).then(
 			({ data }) => {
 				if (data.name) {
 					setCharacter(data);
@@ -25,31 +25,25 @@ const Detail = (props) => {
 
 	return (
 		<div className="detail">
-			<div className="detailInfo">
-				<h1>{character.name}</h1>
-				<table className="detailTable">
-					<tr>
-						<td className="detailTableDescription">STATUS:</td>
-						<td>{character.status}</td>
-					</tr>
-					<tr>
-						<td className="detailTableDescription">SPECIE:</td>
-						<td>{character.species}</td>
-					</tr>
-					<tr>
-						<td className="detailTableDescription">GENDER:</td>
-						<td>{character.gender}</td>
-					</tr>
-					<tr>
-						<td className="detailTableDescription">ORIGIN:</td>
-						<td>
-							{character.origin ? character.origin.name : null}
-						</td>
-					</tr>
-				</table>
-			</div>
 			<div className="detailImage">
 				<img src={character.image} alt={`${character.name} img`} />
+			</div>
+			<div className="detailInfo">
+				<h1 className="detailInfoTitle">{character.name}</h1>
+			</div>
+			<div className="detailDivDescription">
+				<div className="detailDivDescriptionTtle">
+					<h3>STATUS:</h3>
+					<h3>SPECIE:</h3>
+					<h3>GENDER:</h3>
+					<h3>ORIGIN:</h3>
+				</div>
+				<div className="detilDivDescriptionCntnt">
+					<p>{character.status}</p>
+					<p>{character.species}</p>
+					<p>{character.gender}</p>
+					<p>{character.origin?.name}</p>
+				</div>
 			</div>
 			<Link className="detailLinkText" to="/home">
 				<button className="detailVolver">Volver</button>

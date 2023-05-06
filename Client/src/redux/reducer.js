@@ -8,11 +8,11 @@ const initialState = {
 const reducer = (state = initialState, action) => {
 	switch (action.type) {
 		case ADD_FAV:
-			let copyAllCharacters = [...state.allCharacters, action.payload]
+			let copyAllCharacters = [...state.allCharacters, action.payload];
 			return {
 				...state,
 				myFavorites: copyAllCharacters,
-				allCharacters: [...copyAllCharacters]
+				allCharacters: copyAllCharacters,
 			};
 
 		case FILTER:
@@ -20,7 +20,7 @@ const reducer = (state = initialState, action) => {
 
 			// Descomentar esto para que funcione la opcion sin filtro
 			// if (action.payload === 'SinFiltro') {
-			// 	filtrados = [...state.allCharacters]
+			// 	filtrados = [...state.allCharacters];
 			// } else {
 			filtrados = [
 				...state.allCharacters.filter(
