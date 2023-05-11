@@ -27,17 +27,15 @@ function App() {
 
 	const [characters, setCharacters] = useState([]);
 
-	const login = (userData) => {
-		if (userData.email === EMAIL && userData.password === PASSWORD) {
-			localStorage.setItem('acces', 'true');
-			setAccess(true);
-			navigate('/home');
-		} else if (!userData.email || !userData.password) {
-			window.alert('Todos los campos son requeridos');
-		} else if (userData.email !== EMAIL || userData.password !== PASSWORD) {
-			window.alert('Email o password incorrectos');
-		}
-	};
+	function login(userData) {
+		const { email, password } = userData;
+		const URL = 'http://localhost:3001/rickandmorty/login/';
+		axios(URL + `?email=${email}&password=${password}`).then(({ data }) => {
+			const { access } = data;
+			setAccess(data);
+			access && navigate('/home');
+		});
+	}
 
 	const logOut = () => {
 		localStorage.removeItem('acces');
@@ -83,27 +81,27 @@ function App() {
 	const location = useLocation();
 
 	return (
-		<div className="App">
+		<div className='App'>
 			{location.pathname !== '/' && (
 				<Nav onSearch={onSearch} logOut={logOut} />
 			)}
 			{location.pathname !== '/' && location.pathname !== '*' && <Logo />}
 
 			<Routes>
-				<Route path="/" element={<Form login={login} />} />
+				<Route path='/' element={<Form login={login} />} />
 				<Route
-					path="/home"
+					path='/home'
 					element={
 						<Cards characters={characters} onClose={onClose} />
 					}
 				/>
-				<Route path="/about" element={<About />} />
-				<Route path="/detail/:id" element={<Detail />} />
+				<Route path='/about' element={<About />} />
+				<Route path='/detail/:id' element={<Detail />} />
 				<Route
-					path="/favorites"
+					path='/favorites'
 					element={<Favorites onClose={onClose} />}
 				/>
-				<Route path="*" element={<ErrorPage />} />
+				<Route path='*' element={<ErrorPage />} />
 			</Routes>
 		</div>
 	);
