@@ -15,7 +15,7 @@ import { removeFav } from './redux/actions';
 
 function App() {
 	const [access, setAccess] = useState(
-		localStorage.getItem('acces') === 'true'
+		localStorage.getItem('access') === 'true'
 	);
 
 	const dispatch = useDispatch();
@@ -32,13 +32,13 @@ function App() {
 		const URL = 'http://localhost:3001/rickandmorty/login/';
 		axios(URL + `?email=${email}&password=${password}`).then(({ data }) => {
 			const { access } = data;
-			setAccess(data);
+			setAccess(access);
 			access && navigate('/home');
 		});
 	}
 
 	const logOut = () => {
-		localStorage.removeItem('acces');
+		localStorage.removeItem('access');
 		setAccess(false);
 		navigate('/');
 	};
@@ -49,7 +49,7 @@ function App() {
 
 	function onSearch(id) {
 		const characterExists = characters.find(
-			(character) => character.id === Number(id)
+			(character) => character.id === id
 		);
 
 		if (characterExists) {
@@ -71,7 +71,7 @@ function App() {
 
 	const onClose = (id) => {
 		const filteredCharacters = characters.filter(
-			(character) => character.id !== parseInt(id)
+			(character) => character.id !== id
 		);
 		setCharacters(filteredCharacters);
 

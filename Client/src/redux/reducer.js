@@ -15,23 +15,15 @@ const reducer = (state = initialState, action) => {
 			};
 
 		case FILTER:
-			let filtrados = [];
-
-			// Descomentar esto para que funcione la opcion sin filtro
-			// if (action.payload === 'SinFiltro') {
-			// 	filtrados = [...state.allCharacters];
-			// } else {
-			filtrados = [
-				...state.allCharacters.filter(
-					(char) => char.gender === action.payload
-				),
-			];
-			// }
-
+			const allCharactersFiltered = state.allCharacters.filter(
+				(char) => char.gender === action.payload
+			);
 			return {
 				...state,
-				myFavorites: filtrados,
-				allCharacters: [...state.allCharacters, action.payload],
+				myFavorites:
+					action.payload === 'SinFiltro'
+						? [...state.allCharacters]
+						: allCharactersFiltered,
 			};
 
 		case ORDER:
@@ -50,13 +42,7 @@ const reducer = (state = initialState, action) => {
 			};
 
 		case REMOVE_FAV:
-			return {
-				...state,
-				myFavorites: state.myFavorites.filter(
-					(char) => char.id != action.payload
-				),
-				// allCharacters: action.payload,
-			};
+			return { ...state, myFavorites: action.payload };
 		default:
 			return { ...state };
 	}

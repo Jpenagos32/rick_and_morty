@@ -1,17 +1,17 @@
 let myFavorites = [];
 
 const postFav = (req, res) => {
-	myFavorites.push(req.body);
+	const character = req.body;
+
+	myFavorites.push(character);
 
 	return res.status(200).json(myFavorites);
 };
 
 const deleteFav = (req, res) => {
 	const { id } = req.params;
-
-	myFavorites.filter((character) => {
-		return character.id != id;
-	});
+	// el + del id del final sirve para parsearlo (volverlo numero)
+	myFavorites = myFavorites.filter((fav) => fav.id != id);
 
 	return res.status(200).json(myFavorites);
 };

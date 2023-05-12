@@ -1,13 +1,23 @@
-const express = require('express');
-const router = express.Router();
-
-const { getCharById } = require('../controllers/getCharById');
 const { login } = require('../controllers/login');
+const { getCharById } = require('../controllers/getCharById');
 const { postFav, deleteFav } = require('../controllers/handleFavorite');
+const { response } = require('express');
 
-router.get('/character/:id', getCharById);
+const router = require('express').Router();
+
+router.get('/character/:id', (req, res) => {
+	getCharById(req, res);
+});
+
+// tener este login es exactamente a hacer como hicimos en los demás
 router.get('/login', login);
-router.post('/fav', postFav);
-router.delete('/fav/:id', deleteFav);
+
+router.post('/fav', (req, res) => {
+	postFav(req, res);
+});
+
+router.delete('/fav/:id', (req, res) => {
+	deleteFav(req, res);
+});
 
 module.exports = router;
