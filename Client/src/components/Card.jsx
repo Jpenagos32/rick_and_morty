@@ -26,32 +26,32 @@ function Card(props) {
 	}, [props.myFavorites]);
 
 	return (
-		<div className="card">
-			<div className="cardButton">
+		<div className='card'>
+			<div className='cardButton'>
 				{isFav ? (
-					<button className="cardLikeBtn" onClick={handleFavorite}>
+					<button className='cardLikeBtn' onClick={handleFavorite}>
 						❤️
 					</button>
 				) : (
-					<button className="cardLikeBtn" onClick={handleFavorite}>
+					<button className='cardLikeBtn' onClick={handleFavorite}>
 						🤍
 					</button>
 				)}
-				<h2 className="cardHeader">
-					<Link to={`/detail/${props.id}`} className="cardHeaderLink">
+				<h2 className='cardHeader'>
+					<Link to={`/detail/${props.id}`} className='cardHeaderLink'>
 						{props.name}
 					</Link>
 				</h2>
 				<button
-					className="cardCloseBtn"
+					className='cardCloseBtn'
 					onClick={() => props.onClose(props.id)}
 				>
 					X
 				</button>
 			</div>
-			<img src={props.image} alt="" />
+			<img src={props.image} alt='' />
 
-			<div className="textBg">
+			<div className='textBg'>
 				<h2>{props.status}</h2>
 				<h2>{props.species}</h2>
 				<h2>{props.gender}</h2>

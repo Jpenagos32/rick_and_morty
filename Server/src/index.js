@@ -26,6 +26,6 @@ server.use('/rickandmorty', router);
 
 server.listen(PORT, async () => {
 	// conectar con la base de datos:
-	await conn.sync({ force: false }); // ! Poner en false cuando se termine de desarrollar
+	await conn.sync({ force: true }); // ! Poner en false cuando se termine de desarrollar
 	console.log(`Server raised in port ${PORT}`);
 });

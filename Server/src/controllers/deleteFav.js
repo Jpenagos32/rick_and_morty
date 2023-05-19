@@ -9,9 +9,9 @@ const deleteFav = async (req, res) => {
 			},
 		});
 
-		const favoritos = await Favorite.findAll();
+		const allFavorites = await Favorite.findAll();
 
-		res.status(200).json(favoritos);
+		res.status(200).json(allFavorites);
 	} catch (error) {
 		res.status(500).json({ err: error.message });
 	}
